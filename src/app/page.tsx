@@ -1,95 +1,74 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
+import {useEffect, useState} from 'react'
+import * as S from './page.styles'
+import {Item} from '../types/Items'
+import {categories} from '../data/categories'
+import {items} from '../data/items'
+import { filterListByMonth, getCurrentMonth } from '@/helpers/dateFilter'
+import { TableAreas } from '@/components/TableArea/TableArea'
+import { InfoArea } from '@/components/InfoArea/InfoArea'
+import { InputArea } from '@/components/InputArea/InputArea'
+import { ChartComponent } from '@/components/ChartComponent/ChartComponent'
 
-export default function Home() {
-  return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+const Page = ()=>{
+  const [list, setList]=useState<Item[]>(items)
+  const [filterList, setFilterList]=useState<Item[]>([])
+  const [currentMonth, setCurrentMonth]=useState<string>(getCurrentMonth())
+  const [income, setIncome]=useState<number>(0);
+  const [expense, setExpense]=useState<number>(0);
 
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+  const handleMontChange = (newMonth: string) => {
+    console.log("Novo mês recebido:", newMonth);
+    setCurrentMonth(newMonth);
+  };
+
+  const handleAddItem = (item: Item) => {
+    const newList = [...list];
+    newList.push(item);
+    setList(newList);
+  };
+
+  useEffect(()=>{
+    setFilterList( filterListByMonth(list, currentMonth));
+  },[list, currentMonth])
+
+  useEffect(()=>{
+    let incomeCount=0;
+    let expenseCount=0;
+
+    filterList.forEach((item)=>{
+      if(categories[item.category].expense){
+        expenseCount += item.value ?? 0;
+      }else{
+        incomeCount+=item.value ?? 0;
+      }
+    })
+    setIncome(incomeCount);
+    setExpense(expenseCount);
+  },[filterList])
+  
+    return (
+        <S.Container>
+          <S.Header>
+            <S.HeaderText>Finance System</S.HeaderText>
+          </S.Header>
+            <S.Body>
+              <InfoArea 
+              OnMonthChange={handleMontChange}
+              currentMonth ={currentMonth}
+              income={income}
+              expense={expense}
+              />
+              <ChartComponent income ={income} expense ={expense}/>
+              <InputArea 
+              onAddItem={handleAddItem}/>
+              <TableAreas 
+                list={filterList}
+                setList={setList}
+              />
+            </S.Body>
+        </S.Container>
+    )
 }
+
+export default Page;
