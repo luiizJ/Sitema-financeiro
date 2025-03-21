@@ -6,8 +6,9 @@ export const TableLine = styled.tr`
 `;
 
 export const TableData = styled.td`
-  padding: 12px;
+  padding: 12x;
   text-align: left;
+  font-size: 18px;
 `;
 
 export const Category = styled.div<{ color: string }>`
@@ -16,6 +17,7 @@ export const Category = styled.div<{ color: string }>`
   border-radius: 4px;
   font-weight: bold;
   color: white;
+  font-weight: bold;
   background-color: ${(props) => props.color};
 `;
 

@@ -15,6 +15,6 @@ export const TableHeaderColumn = styled.th<{ width?: number }>`
   padding: 10px 0;
   text-align: left;
   border-bottom: 2px solid #ddd;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: bold;
 `;

@@ -1,13 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  background-color: #fff;
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1);
   border-radius: 10px;
   padding: 20px;
   display: flex;
   align-items: center;
-  margin-bottom: 20px;
+  height: 150px;
 `;
 
 export const MonthArea = styled.div`
@@ -38,5 +37,6 @@ export const MonthTitle = styled.div`
 export const ResumeArea = styled.div`
   flex: 2;
   display: flex;
+  font-size:20px;
   justify-content: space-around;
 `;

@@ -59,13 +59,15 @@ const Page = ()=>{
               income={income}
               expense={expense}
               />
-              <ChartComponent income ={income} expense ={expense}/>
-              <InputArea 
-              onAddItem={handleAddItem}/>
+              <S.NoGrid>
               <TableAreas 
                 list={filterList}
                 setList={setList}
               />
+              <ChartComponent income ={income} expense ={expense}/>
+              </S.NoGrid>
+              <InputArea 
+              onAddItem={handleAddItem}/>
             </S.Body>
         </S.Container>
     )

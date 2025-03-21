@@ -7,12 +7,17 @@ export const Container = styled.div`
   gap: 20px;
   background-color: #f5f5f5;
   padding: 20px;
+  margin-top: 20px;
   border-radius: 8px;
   color: #333;
+  width: 50%;
+  height: 100%;
 `;
 
 export const Chart = styled.div`
-  width: 80%;
+  width: 60%;
+    height: 100%;
+
 `;
 
 export const Indicators = styled.div`
