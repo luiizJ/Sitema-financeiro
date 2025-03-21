@@ -1,36 +1,72 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Finance System
 
-## Getting Started
+Projeto de controle financeiro simples, que permite gerenciar receitas, despesas, categorias e visualizar um resumo em forma de gráfico.
 
-First, run the development server:
+## Índice
+- [Visão Geral](#visão-geral)
+- [Funcionalidades](#funcionalidades)
+- [Tecnologias Utilizadas](#tecnologias-utilizadas)
+- [Como Executar](#como-executar)
+- [Estrutura de Pastas](#estrutura-de-pastas)
+- [Contribuição](#contribuição)
+- [Licença](#licença)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Visão Geral
+Este projeto **Finance System** foi desenvolvido para controlar receitas e despesas de forma simples, permitindo que o usuário, adicione transações (com data, título, valor, status de pagamento), visualize um gráfico de resumo e salve tudo no **localStorage**.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Funcionalidades
+1. **Cadastro de Transações**  
+   - Adicionar despesas e receitas.  
+   - Escolher data, categoria, título e valor.
 
-## Learn More
+2. **Resumo Financeiro**  
+   - Exibição de total de receitas, despesas e balanço.  
+   - Gráfico de barras para visualizar comparativo entre receitas e despesas.
 
-To learn more about Next.js, take a look at the following resources:
+3. **Persistência de Dados**  
+   - Todos os dados são salvos no `localStorage`, garantindo que não sejam perdidos ao recarregar a página.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+4. **Tabela de Transações**  
+   - Listagem de todas as transações filtradas por mês.  
+   - Marcar transações como pagas (checkbox).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Tecnologias Utilizadas
+- **React** (Hooks, Context API, Components)  
+- **TypeScript** (tipagem estática)  
+- **styled-components** (estilização)  
+- **Chart.js** + **react-chartjs-2** (gráficos)  
+- **localStorage** (persistência de dados no navegador)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+---
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Como Executar
+1. **Clonar o Repositório**  
+   ```bash
+   git clone https://github.com/usuario/finance-system.git
+   cd finance-system
+2. **Instalar Dependências**
+  npm install
+  # ou
+  yarn
+3. **Iniciar o projeto**
+  npm run dev
+  # ou
+  yarn dev
+4.**Acessar no Navegador**
+Abra http://localhost:3000 para ver a aplicação rodando.
+
+## Contribuição
+1. Faça um fork do repositório.
+2. Crie uma branch para sua feature (git checkout -b feature/nova-feature).
+3. Faça commit das suas alterações (git commit -m 'Adiciona nova feature').
+4. Faça push da sua branch (git push origin feature/nova-feature).
+5. Abra um Pull Request para o repositório principal.
+
+# Licença
+# Este projeto está licenciado sob a licença *MIT*.
