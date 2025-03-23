@@ -1,3 +1,4 @@
+import { device } from '@/app/breakpoints';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -12,6 +13,10 @@ export const Container = styled.div`
   color: #333;
   width: 50%;
   height: 100%;
+  @media ${device.tablet} {
+    width: 70%;
+    maegin: 0;
+  }
 `;
 
 export const Chart = styled.div`

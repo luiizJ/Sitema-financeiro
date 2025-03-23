@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { device } from './breakpoints';
 
 export const Container = styled.div`
   
@@ -28,4 +29,9 @@ export const NoGrid = styled.div`
 display: flex;
 gap: 15px;
 margin-bottom: 20px;
+  @media ${device.tablet} {
+    /* Ajustes para telas acima de 768px */
+    flex-direction: column;
+    align-items: center;
+  }
 `;

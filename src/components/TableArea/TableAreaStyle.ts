@@ -8,6 +8,7 @@ export const Table = styled.table`
   border-radius: 10px;
   margin-top: 20px;
   color: #333;
+  
 `;
 
 export const TableHeaderColumn = styled.th<{ width?: number }>`
