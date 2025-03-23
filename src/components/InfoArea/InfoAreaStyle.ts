@@ -1,3 +1,4 @@
+import { device } from '@/app/breakpoints';
 import styled from 'styled-components';
 
 export const Container = styled.div`
@@ -7,6 +8,10 @@ export const Container = styled.div`
   display: flex;
   align-items: center;
   height: 150px;
+    @media ${device.mobile}{
+    padding: 0;
+    height: 120px;
+  }
 `;
 
 export const MonthArea = styled.div`
@@ -39,4 +44,7 @@ export const ResumeArea = styled.div`
   display: flex;
   font-size:20px;
   justify-content: space-around;
+    @media ${device.mobile}{
+    gap: 0.5rem;
+  }
 `;

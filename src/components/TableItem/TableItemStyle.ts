@@ -6,7 +6,6 @@ export const TableLine = styled.tr`
   border-bottom: 1px solid #444;
    @media ${device.tablet} {
     padding-bottom: 10px
-  }
 `;
 
 export const TableData = styled.td`
@@ -15,6 +14,10 @@ export const TableData = styled.td`
   font-size: 18px;
   @media ${device.tablet} {
   padding-top: 14px
+}
+
+@media ${device.mobile}{
+  padding-left: 1.1rem;
 }
 `;
 

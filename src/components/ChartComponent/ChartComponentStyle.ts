@@ -15,20 +15,28 @@ export const Container = styled.div`
   height: 100%;
   @media ${device.tablet} {
     width: 70%;
-    maegin: 0;
+    margin: 0;
+  }
+      @media ${device.mobile}{
+    width: 80%;
+
   }
 `;
 
 export const Chart = styled.div`
   width: 60%;
     height: 100%;
+      @media ${device.mobile}{
+        width: 100%;
+        height: 100%;
+      }
 
 `;
 
 export const Indicators = styled.div`
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 20px;   
 `;
 
 export const Indicator = styled.div`
